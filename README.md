@@ -60,7 +60,7 @@ This repository contains a robust **Playwright Automation Framework** designed f
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/<username>/<repository-name>.git
+   git clone https://github.com/vaibhav-arde/PlaywrightQAAutomation.git
    cd <repository-name>
    ```
 
@@ -70,7 +70,7 @@ This repository contains a robust **Playwright Automation Framework** designed f
    ```
 
 3. **Set the Environment**:
-   - Create `.env` files for each environment (e.g., `.env.dev`, `.env.staging`).
+   - Create `.env` files for each environment (e.g., `.env.dev`, `.env.test`).
    - Example:
      ```env
      API_BASE_URL=https://dummyjson.com
