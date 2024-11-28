@@ -32,7 +32,7 @@ test('@e2e Add multiple items to cart, remove items, and update cart quantities'
     // Verify that the cart badge is updated
     const cartBadge = await productsPage.cartBadge
     await expect(cartBadge).toHaveText('2');
-    // await page.pause()
+
     // Click on the shopping cart link to open the cart
     await productsPage.cart.click();
 
@@ -45,6 +45,7 @@ test('@e2e Add multiple items to cart, remove items, and update cart quantities'
 
     // // Remove an item from the cart (Sauce Labs Backpack)
     await cartPage.removeItemFromCart(productData[0])
+
     // cartItems = await productsPage.cartItems
     await expect(await productsPage.cartItems).toHaveCount(1);
 
@@ -72,6 +73,4 @@ test('@e2e Add multiple items to cart, remove items, and update cart quantities'
     // Verify Order Complete messages
     await checkoutPage.validateOrderCompleteMessage(messageData)
 
-
-    
 });

@@ -61,7 +61,7 @@ This repository contains a robust **Playwright Automation Framework** designed f
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/vaibhav-arde/PlaywrightQAAutomation.git
-   cd <repository-name>
+   cd PlaywrightQAAutomation
    ```
 
 2. **Install Dependencies**:
@@ -85,7 +85,7 @@ This repository contains a robust **Playwright Automation Framework** designed f
      ```
    - **Run Specific Project**:
      ```bash
-     npx playwright test --project=UITestsChrome
+     npx playwright test --project=chromium
      ```
 
 5. **Generate and View Reports**:
