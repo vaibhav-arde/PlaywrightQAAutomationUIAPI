@@ -105,6 +105,10 @@ This repository contains a robust **Playwright Automation Framework** designed f
 
 ---
 
+## Youtube Link:
+You can find a detailed project explanation on YouTube at the following link: [Playwright UI API Automation](https://www.youtube.com/watch?v=1kJCv1vc7pU).
+
+---
 ## Contributing
 Feel free to contribute by submitting a pull request. Make sure to follow the coding standards and include tests for any new features.
 
