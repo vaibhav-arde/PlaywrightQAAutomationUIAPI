@@ -39,16 +39,15 @@ This repository contains a robust **Playwright Automation Framework** designed f
 - Separate directories for **UI tests**, **API tests**, and shared utilities.
 
 ---
-
-## Repository Structure
+### Repository Structure
 
 ```
 .
-├── tests/
+├── tests/                 # Contains all test cases
 │   ├── ui/                # UI tests organized by features
 │   ├── api/               # API tests organized by endpoints
-│   └── utils/             # Utility functions and shared code
 ├── pages/                 # Page Object Model implementation
+├── utils/                 # Utility functions and shared code
 ├── configs/               # Environment-specific configurations
 ├── .env                   # Default environment variables
 ├── playwright.config.ts   # Playwright configuration
