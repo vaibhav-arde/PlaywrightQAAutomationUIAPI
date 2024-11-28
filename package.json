@@ -1,0 +1,34 @@
+{
+  "name": "playwrightqaautomation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test:ui:dev": "NODE_ENV=dev npx playwright test --project=UITests",
+    "test:api:dev": "NODE_ENV=dev npx playwright test --project=APITests",
+    "test:ui:test": "NODE_ENV=test npx playwright test --project=UITests",
+    "test:api:test": "NODE_ENV=test npx playwright test --project=APITests",
+    "test:ui:uat": "NODE_ENV=uat npx playwright test --project=UITests",
+    "test:api:uat": "NODE_ENV=uat npx playwright test --project=APITests",
+    "test:ui": "NODE_ENV=dev npx playwright test --project=UITests --headed",
+    "test:api": "NODE_ENV=dev npx playwright test --project=APITests --headed",
+    "test:iphone14": "NODE_ENV=dev npx playwright test --project=UITestsIphone14 --headed",
+    "test:pixel7": "NODE_ENV=dev npx playwright test --project=UITestsPixel7 --headed",
+    "test:iphone12": "NODE_ENV=dev npx playwright test --project=UITestsMobileSafari --headed",
+    "devMode": "npx playwright test --ui"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.10.0",
+    "allure-playwright": "^3.0.6",
+    "dotenv": "^16.4.5",
+    "jsonschema": "^1.4.1",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "typescript": "^5.7.2"
+  }
+}

@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Sauce Labs Bike Light",
+        "price": "$9.99",
+        "add_to_cart": "#add-to-cart-sauce-labs-bike-light",
+        "remove": "remove-sauce-labs-bike-light"
+    },
+    {
+        "name": "Sauce Labs Fleece Jacket",
+        "price": "$49.99",
+        "add_to_cart": "#add-to-cart-sauce-labs-fleece-jacket",
+        "remove": "remove-sauce-labs-fleece-jacket"
+    }
+]
