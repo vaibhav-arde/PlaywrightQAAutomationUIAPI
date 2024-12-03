@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { POManager } from '../pageobjects/POManager';
 import UserLoginData from '../utils/UserLoginData.json';
 import errorMessages from '../testData/loginErrors.json';
+import std from '../testData/supportiveTestData.json'
 
 let poManager: POManager;
 let loginPage: any;
@@ -19,7 +20,7 @@ test.describe("Login Scenarios", () => {
             UserLoginData.valid_user.password
         );
 
-        await expect(page).toHaveURL('https://rahulshettyacademy.com/client/dashboard/dash');
+        await expect(page).toHaveURL(std.dashBoardURL);
 
     });
 
