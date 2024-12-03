@@ -28,11 +28,12 @@ test.beforeAll(async ({ browser }) => {
     await loginPage.loginButton.click();
     await page.waitForLoadState('networkidle');
     
+    const storeStatePath = "state/state.json"
     // Storing state data
-    await context.storageState({ path: 'state/state.json' });
+    await context.storageState({ path: storeStatePath });
 
     // new context with storageState
-    webContext = await browser.newContext({ storageState: 'state.json' });
+    webContext = await browser.newContext({ storageState: storeStatePath });
 })
 
 test('@SkipUILogin Validate products on products page', async () => {

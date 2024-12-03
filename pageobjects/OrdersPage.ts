@@ -5,6 +5,8 @@ export class OrdersPage {
     ordersButton: Locator;
     tableBody: Locator;
     orderIdTxt: Locator;
+    orderViewButton: Locator;
+    notAuthorisedMessage: Locator;
 
 
     constructor(page: Page) {
@@ -12,6 +14,8 @@ export class OrdersPage {
         this.ordersButton = page.locator("button[routerlink*='myorders']");
         this.tableBody = page.locator("tbody");
         this.orderIdTxt = page.locator(`.col-text`);
+        this.orderViewButton = page.locator("button:has-text('View')");
+        this.notAuthorisedMessage = page.locator("p").last();
 
     }
 
