@@ -22,22 +22,25 @@ test.beforeAll(async ({ browser }) => {
 
     await page.goto("/client");
 
+    // Login though UI
     await loginPage.userEmail.fill(userdata.valid_user.useremail);
     await loginPage.password.fill(userdata.valid_user.password);
     await loginPage.loginButton.click();
-    
     await page.waitForLoadState('networkidle');
-    await context.storageState({ path: 'state.json' });
+    
+    // Storing state data
+    await context.storageState({ path: 'state/state.json' });
 
+    // new context with storageState
     webContext = await browser.newContext({ storageState: 'state.json' });
 })
 
 test('@SkipUILogin Validate products on products page', async () => {
+    // No need to login as we are using above webContext
     const page = await webContext.newPage();
     await page.goto("/client");
     await page.waitForLoadState('networkidle');
 
-    // const titles = await page.locator(".card-body b").allTextContents();
     const titles = await productsPage.productName.allTextContents();
     expect(orderData.products).toEqual(titles)
     console.log(titles);
