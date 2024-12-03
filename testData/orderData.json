@@ -2,5 +2,6 @@
     "order1": {
         "country": "Cuba",
         "productOrderedId": "6581ca399fd99c85e8ee7f45"
-    }
+    },
+    "products": [ "ZARA COAT 3", "ADIDAS ORIGINAL", "IPHONE 13 PRO", "qwerty"]
 }

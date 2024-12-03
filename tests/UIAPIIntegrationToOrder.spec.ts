@@ -21,7 +21,7 @@ test.beforeAll(async () => {
 // Here Order is created with help of API and 
 // Then with help of addInitScript, token is inserted in page which allow us to skip login using UI.
 
-test('@API1 Place the order', async ({ page }) => {
+test('@APIUI Place the order', async ({ page }) => {
 
     poManager = new POManager(page);
     ordersPage = poManager.getOrdersPage();
