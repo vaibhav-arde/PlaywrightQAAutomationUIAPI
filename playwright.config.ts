@@ -57,72 +57,72 @@ export default defineConfig({
       name: 'APITests',
       testDir: './tests',  // Directory for API tests
       use: {
-        baseURL: process.env.API_BASE_URL || 'https://dummyjson.com',  // API Base URL from environment variable
+        baseURL: process.env.API_BASE_URL || 'https://rahulshettyacademy.com',  // API Base URL from environment variable
       },
     },
     {
       name: 'UITests',
       testDir: './tests',  // Directory for UI tests
       use: {
-        baseURL: process.env.UI_BASE_URL || 'https://rahulshettyacademy.com/client',  // UI Base URL from environment variable
+        baseURL: process.env.UI_BASE_URL || 'https://rahulshettyacademy.com',  // UI Base URL from environment variable
       },
     },
     {
       name: 'UITestsChrome',
-      testDir: './tests/ui',  // Directory for UI tests
+      testDir: './tests',  // Directory for UI tests
       use: {
-        baseURL: process.env.UI_BASE_URL || 'https://www.saucedemo.com',
+        baseURL: process.env.UI_BASE_URL || 'https://rahulshettyacademy.com',
         browserName : 'chromium'
       },
     },
     {
       name: 'UITestsFirefox',
-      testDir: './tests/ui',  // Directory for UI tests
+      testDir: './tests',  // Directory for UI tests
       use: {
-        baseURL: process.env.UI_BASE_URL || 'https://www.saucedemo.com',
+        baseURL: process.env.UI_BASE_URL || 'https://rahulshettyacademy.com',
         browserName : 'firefox'
       },
     },
     {
       name: 'UITestsSafari',
-      testDir: './tests/ui',
+      testDir: './tests',
       use: {
-        baseURL: process.env.UI_BASE_URL || 'https://www.saucedemo.com',
+        baseURL: process.env.UI_BASE_URL || 'https://rahulshettyacademy.com',
         browserName: 'webkit', // Safari browser
       },
     },
     {
       name: 'UITestsMobileChrome',
-      testDir: './tests/ui',
+      testDir: './tests',
       use: {
-        baseURL: process.env.UI_BASE_URL || 'https://www.saucedemo.com',
+        baseURL: process.env.UI_BASE_URL || 'https://rahulshettyacademy.com',
         browserName: 'chromium', // Mobile Chrome
         ...devices['Pixel 5'], // Mobile Chrome with Pixel 5 emulation
       },
     },
     {
       name: 'UITestsMobileSafari',
-      testDir: './tests/ui',
+      testDir: './tests',
       use: {
-        baseURL: process.env.UI_BASE_URL || 'https://www.saucedemo.com',
+        baseURL: process.env.UI_BASE_URL || 'https://rahulshettyacademy.com',
         browserName: 'webkit', // Mobile Safari
         ...devices['iPhone 12'], // Mobile Safari with iPhone 12 emulation
       },
     },
     {
       name: 'UITestsIphone14',
-      testDir: './tests/ui',
+      testDir: './tests',
       use: {
-        baseURL: process.env.UI_BASE_URL || 'https://www.saucedemo.com',
+        baseURL: process.env.UI_BASE_URL || 'https://rahulshettyacademy.com',
         browserName: 'webkit', // Safari browser
         ...devices['iPhone 14'], // iPhone 14 emulation
       },
     },
     {
       name: 'UITestsPixel7',
-      testDir: './tests/ui',
+      testDir: './tests',
       use: {
-        baseURL: process.env.UI_BASE_URL || 'https://www.saucedemo.com',
+        baseURL: process.env.UI_BASE_URL || 'https://rahulshettyacademy.com',
         browserName: 'chromium', // Chrome browser
         ...devices['Pixel 7'], // Pixel 7 emulation
       },

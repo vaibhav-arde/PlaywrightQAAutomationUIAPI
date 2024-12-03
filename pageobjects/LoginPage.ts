@@ -23,8 +23,8 @@ export class LoginPage {
     }
 
     async goTo() {
-        await this.page.goto("https://rahulshettyacademy.com/client");
-        // await this.page.goto('/');
+        // await this.page.goto("https://rahulshettyacademy.com/client");
+        await this.page.goto('/client');
     }
 
     async validLogin(username: string, password: string) {
