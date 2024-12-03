@@ -2,51 +2,53 @@ import { expect, Locator, Page } from '@playwright/test';
 
 
 export class LoginPage {
-    signInbutton: Locator;
-    userName: Locator;
+    userEmail: Locator;
     password: Locator;
-    loginLogo: Locator;
-    userNameError: Locator;
-    passwordError: Locator;
-    errorMessageBtn: Locator;
-    errorMessage: Locator;
+    loginButton: Locator;
+    userEmailInvalidFeedback: Locator;
+    userPasswordInvalidFeedback: Locator;
+    alert: Locator;
     page: Page;
 
     constructor(page: Page) {
         this.page = page;
-        this.signInbutton = page.locator("#login-button");
-        this.userName = page.locator("#user-name");
-        this.password = page.locator("#password");
-        this.loginLogo = page.locator("div.login_logo");
-        this.userNameError = page.locator("#user-name+svg[data-prefix='fas']");
-        this.passwordError = page.locator("#password+svg[data-prefix='fas']");
-        this.errorMessageBtn = page.locator("button svg[data-prefix='fas']");
-        this.errorMessage = page.locator("h3[data-test='error']");
+        this.userEmail = page.locator("#userEmail");
+        this.password = page.locator("#userPassword");
+        this.loginButton = page.locator("#login");
+        this.userEmailInvalidFeedback = page.locator("#userEmail").locator("..").locator(".invalid-feedback");
+        this.userPasswordInvalidFeedback = page.locator("#userPassword").locator("..").locator(".invalid-feedback");
+        // this.alert = page.locator("div[role='alert']");
+        // this.alert = page.locator("#toast-container div[role='alert']");
+        this.alert = page.getByLabel('Incorrect email or password.');
     }
 
     async goTo() {
-        // await this.page.goto("https://www.saucedemo.com/");
-        await this.page.goto('/');
+        await this.page.goto("https://rahulshettyacademy.com/client");
+        // await this.page.goto('/');
     }
 
     async validLogin(username: string, password: string) {
-        await this.userName.fill(username);
+        await this.userEmail.fill(username);
         await this.password.fill(password);
-        await this.signInbutton.click();
+        await this.loginButton.click();
         await this.page.waitForLoadState('networkidle');
     }
 
-    async verifyLoginPage() {
-        await expect(this.loginLogo).toBeVisible();
-        await expect(this.userName).toBeVisible();
-        await expect(this.password).toBeVisible();
-        await expect(this.signInbutton).toBeVisible();
+    async assertErrorMessage(useremail: string, password: string, errorMessages: string[]) {
+        if (useremail === '' && password === '') {
+            await expect(this.userEmailInvalidFeedback).toHaveText(errorMessages[0]);
+            await expect(this.userPasswordInvalidFeedback).toHaveText(errorMessages[1]);
+        } else if (useremail === '') {
+            await expect(this.userEmailInvalidFeedback).toHaveText(errorMessages[0]);
+        } else if (password === '') {
+            await expect(this.userPasswordInvalidFeedback).toHaveText(errorMessages[0]);
+        } else {
+            await expect(this.alert).toBeVisible();
+        }
     }
 
-    async verifyPresenceErrorIcons() {
-        await expect(this.userNameError).toBeVisible()
-        await expect(this.passwordError).toBeVisible()
-        await expect(this.errorMessageBtn).toBeVisible()
+    async captureToastMessage() {
+        await this.page.screenshot({ path: 'screenshots/toast-message.png' });
     }
 
 }

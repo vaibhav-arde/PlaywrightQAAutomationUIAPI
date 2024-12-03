@@ -14,7 +14,8 @@
     "test:iphone14": "NODE_ENV=dev npx playwright test --project=UITestsIphone14 --headed",
     "test:pixel7": "NODE_ENV=dev npx playwright test --project=UITestsPixel7 --headed",
     "test:iphone12": "NODE_ENV=dev npx playwright test --project=UITestsMobileSafari --headed",
-    "devMode": "npx playwright test --ui"
+    "devMode": "npx playwright test --ui",
+    "allureReport": "allure generate ./allure-results -o ./allure-report --clean && allure open ./allure-report"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,7 @@
     "ts-node": "^10.9.2"
   },
   "dependencies": {
+    "playwright": "^1.49.0",
     "typescript": "^5.7.2"
   }
 }

@@ -1,18 +1,11 @@
 {
-    "standard_user": {
-        "username": "standard_user",
-        "password": "secret_sauce",
-        "firstname": "standard",
-        "lastname": "user",
-        "zipcode": "416007"
+    "valid_user": {
+        "useremail": "vaibhav.arde@gmail.com",
+        "password": "Admin@123"
 
     },
-    "locked_out_user": {
-        "username": "locked_out_user",
-        "password": "secret_sauce"
-    },
-    "problem_user": {
-        "username": "problem_user",
-        "password": "secret_sauce"
+    "invalid_user": {
+        "useremail": "invalid@gmail.com",
+        "password": "invalid"
     }
 }

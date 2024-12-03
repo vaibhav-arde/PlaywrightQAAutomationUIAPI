@@ -26,9 +26,9 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  // reporter: 'html',
   // reporter: "allure-playwright",
-  // reporter: [["line"], ["allure-playwright"]],
+  reporter: [["line"], ["allure-playwright"]],
   // workers: 4,
   // retries: 1,
   timeout: 30 * 1000,
@@ -55,16 +55,16 @@ export default defineConfig({
   projects: [
     {
       name: 'APITests',
-      testDir: './tests/api',  // Directory for API tests
+      testDir: './tests',  // Directory for API tests
       use: {
         baseURL: process.env.API_BASE_URL || 'https://dummyjson.com',  // API Base URL from environment variable
       },
     },
     {
       name: 'UITests',
-      testDir: './tests/ui',  // Directory for UI tests
+      testDir: './tests',  // Directory for UI tests
       use: {
-        baseURL: process.env.UI_BASE_URL || 'https://www.saucedemo.com',  // UI Base URL from environment variable
+        baseURL: process.env.UI_BASE_URL || 'https://rahulshettyacademy.com/client',  // UI Base URL from environment variable
       },
     },
     {

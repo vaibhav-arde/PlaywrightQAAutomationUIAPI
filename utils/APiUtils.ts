@@ -1,8 +1,8 @@
-export class ApiUtils {
+export class APiUtils {
     apiContext: any;
     loginPayLoad: any;
   
-    constructor(apiContext: any, loginPayLoad: string) {
+    constructor(apiContext: any, loginPayLoad: {}) {
       this.apiContext = apiContext;
       this.loginPayLoad = loginPayLoad;
     }
@@ -10,24 +10,24 @@ export class ApiUtils {
     // Method to get token
     async getToken() {
       const loginResponse = await this.apiContext.post(
-        "https://dummyjson.com/api/ecom/auth/login",
+        "https://rahulshettyacademy.com/api/ecom/auth/login",
         {
-          data: this.loginPayLoad,
+          data: this.loginPayLoad
         }
       );
       const loginResponseJson = await loginResponse.json();
       const token = loginResponseJson.token;
-      console.log(token);
+      console.log("token", token);
       return token;
     }
   
     // Method to create an order
-    async createOrder(orderPayLoad: string) {
+    async createOrder(orderPayLoad: {}) {
       const response = { token: "", orderId: "" };
       response.token = await this.getToken();
       
       const orderResponse = await this.apiContext.post(
-        "https://dummyjson.com/api/ecom/order/create-order",
+        "https://rahulshettyacademy.com/api/ecom/order/create-order",
         {
           data: orderPayLoad,
           headers: {
@@ -38,7 +38,7 @@ export class ApiUtils {
       );
   
       const orderResponseJson = await orderResponse.json();
-      console.log(orderResponseJson);
+      console.log("orderResponseJson", orderResponseJson);
       response.orderId = orderResponseJson.orders[0];
       return response;
     }
