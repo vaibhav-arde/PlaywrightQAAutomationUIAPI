@@ -15,7 +15,8 @@
     "test:pixel7": "NODE_ENV=dev npx playwright test --project=UITestsPixel7 --headed",
     "test:iphone12": "NODE_ENV=dev npx playwright test --project=UITestsMobileSafari --headed",
     "devMode": "npx playwright test --ui",
-    "allureReport": "allure generate ./allure-results -o ./allure-report --clean && allure open ./allure-report"
+    "allureReport": "allure generate ./allure-results -o ./allure-report --clean && allure open ./allure-report",
+    "test":"npx playwright test --grep @API1 --headed --project=UITests"
   },
   "keywords": [],
   "author": "",

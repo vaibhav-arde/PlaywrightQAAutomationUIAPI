@@ -9,14 +9,8 @@ export class APiUtils {
   
     // Method to get token
     async getToken() {
-      const loginResponse = await this.apiContext.post(
-        "https://rahulshettyacademy.com/api/ecom/auth/login",
-        {
-          data: this.loginPayLoad
-        }
-      );
-      const loginResponseJson = await loginResponse.json();
-      const token = loginResponseJson.token;
+      const loginResponse = await this.post("/api/ecom/auth/login", this.loginPayLoad)
+      const token = loginResponse.token;
       console.log("token", token);
       return token;
     }
@@ -25,21 +19,13 @@ export class APiUtils {
     async createOrder(orderPayLoad: {}) {
       const response = { token: "", orderId: "" };
       response.token = await this.getToken();
-      
-      const orderResponse = await this.apiContext.post(
-        "https://rahulshettyacademy.com/api/ecom/order/create-order",
-        {
-          data: orderPayLoad,
-          headers: {
-            Authorization: response.token,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-  
-      const orderResponseJson = await orderResponse.json();
-      console.log("orderResponseJson", orderResponseJson);
-      response.orderId = orderResponseJson.orders[0];
+      let headers = {
+        Authorization: response.token,
+        "Content-Type": "application/json",
+      }
+      const orderResponse = await this.post("/api/ecom/order/create-order", orderPayLoad, headers)
+      console.log("orderResponse", orderResponse);
+      response.orderId = orderResponse.orders[0];
       return response;
     }
   
@@ -51,9 +37,10 @@ export class APiUtils {
     }
   
     // Method to make POST requests
-    async post(url: string, data: any) {
+    async post(url: string, data: any, headers?: any) {
       const response = await this.apiContext.post(url, {
         data: data,
+        headers: headers
       });
       const responseBody = await response.json();
       return responseBody;

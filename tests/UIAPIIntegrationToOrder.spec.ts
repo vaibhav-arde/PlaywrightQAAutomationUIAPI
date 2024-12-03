@@ -1,40 +1,49 @@
 
 import { test, expect, request } from '@playwright/test';
 import { APiUtils } from '../utils/APiUtils'
+import userdata from '../utils/UserLoginData.json'
+import orderData from '../testData/orderData.json'
+import { POManager } from '../pageobjects/POManager';
 
-const loginPayLoad = {userEmail:"vaibhav.arde@gmail.com",userPassword:"Admin@123"};
-const orderPayLoad = { orders: [{ country: "Cuba", productOrderedId: "6581ca399fd99c85e8ee7f45" }] };
+const loginPayLoad = {userEmail:userdata.valid_user.useremail,userPassword:userdata.valid_user.password};
+const orderPayLoad = { orders: [{ country: orderData.order1.country, productOrderedId: orderData.order1.productOrderedId }] };
 
-
+let poManager: POManager;
+let ordersPage: any;
 let response: any;
+
 test.beforeAll(async () => {
     const apiContext = await request.newContext();
     const apiUtils = new APiUtils(apiContext, loginPayLoad);
     response = await apiUtils.createOrder(orderPayLoad);
 })
 
-
 // Here Order is created with help of API and 
 // Then with help of addInitScript, token is inserted in page which allow us to skip login using UI.
-// 
-test('@API Place the order', async ({ page }) => {
+
+test('@API1 Place the order', async ({ page }) => {
+
+    poManager = new POManager(page);
+    ordersPage = poManager.getOrdersPage();
+
+    // Below step insert the token into local storage
     page.addInitScript((value : any) => {
         window.localStorage.setItem('token', value);
     }, response.token);
-    await page.goto("https://rahulshettyacademy.com/client");
-    await page.locator("button[routerlink*='myorders']").click();
-    await page.locator("tbody").waitFor();
-    const rows = await page.locator("tbody tr");
 
-    for (let i = 0; i < await rows.count(); ++i) {
-        const rowOrderId = await rows.nth(i).locator("th").textContent();
-        if (response.orderId.includes(rowOrderId)) {
-            await rows.nth(i).locator("button").first().click();
-            break;
-        }
-    }
-    const orderIdDetails = await page.locator(".col-text").textContent();
+    // Login without UI
+    await page.goto("/client");
+
+    // Navigate to orders page
+    await ordersPage.ordersButton.click();
+    await ordersPage.tableBody.waitFor();
+
+    // OpenOrder Summary for respective order
+    await ordersPage.clickViewForRespectiveOrder(response.orderId)
+
+    // Verify same orderid is present on order summary page as well
+    await ordersPage.orderIdTxt.waitFor();
+    const orderIdDetails = await ordersPage.orderIdTxt.textContent();
     console.log("orderIdDetails", orderIdDetails)
-    //await page.pause();
     expect(response.orderId.includes(orderIdDetails)).toBeTruthy();
 });
