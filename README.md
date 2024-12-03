@@ -60,8 +60,8 @@ This repository contains a robust **Playwright Automation Framework** designed f
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/vaibhav-arde/PlaywrightQAAutomation.git
-   cd PlaywrightQAAutomation
+   git clone https://github.com/vaibhav-arde/PlaywrightQAAutomationUIAPI.git
+   cd PlaywrightQAAutomationUIAPI
    ```
 
 2. **Install Dependencies**:
@@ -73,8 +73,8 @@ This repository contains a robust **Playwright Automation Framework** designed f
    - Create `.env` files for each environment (e.g., `.env.dev`, `.env.test`).
    - Example:
      ```env
-     API_BASE_URL=https://dummyjson.com
-     UI_BASE_URL=https://www.saucedemo.com
+      API_BASE_URL=https://rahulshettyacademy.com
+      UI_BASE_URL=https://rahulshettyacademy.com
      ```
 
 4. **Run Tests**:
@@ -92,7 +92,12 @@ This repository contains a robust **Playwright Automation Framework** designed f
    ```bash
    allure generate ./allure-results -o ./allure-report --clean
    allure open ./allure-report
+
+   or
+
+   npm run allureReport
    ```
+
 
 ---
 
@@ -106,7 +111,7 @@ This repository contains a robust **Playwright Automation Framework** designed f
 ---
 
 ## Youtube Link:
-You can find a detailed project explanation on YouTube at the following link: [Playwright UI API Automation](https://www.youtube.com/watch?v=1kJCv1vc7pU).
+You can find a detailed project explanation on YouTube at the following link: [Playwright UI API Automation]().
 
 ---
 ## Contributing
