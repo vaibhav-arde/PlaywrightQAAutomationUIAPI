@@ -16,7 +16,6 @@ export class POManager {
         this.page = page;
         this.loginPage = new LoginPage(this.page);
         this.ordersPage = new OrdersPage(this.page);
-
         this.productsPage = new ProductsPage(this.page);
 
     }
